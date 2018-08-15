@@ -58,13 +58,5 @@ class IOModule(val context: Context) {
 
   @Provides
   @Singleton
-  fun provideOkHttpClient(): OkHttpClient = okHttpClient
-
-  @Provides
-  @Singleton
-  fun provideGson(): Gson = gson
-
-  @Provides
-  @Singleton
   fun provideRestfulAPI(): RestfulAPI = restfulAPI
 }
