@@ -1,29 +1,29 @@
-package com.jackyli.salestax.main
+package com.jackyli.salestax.products
 
 import com.jackyli.domain.product.model.Product
 import com.jackyli.salestax.BaseActivity
 import com.jackyli.salestax.MainApplication
 import com.jackyli.salestax.R
-import com.jackyli.salestax.main.di.DaggerMainComponent
-import com.jackyli.salestax.main.di.MainModule
+import com.jackyli.salestax.products.di.DaggerProductsComponent
+import com.jackyli.salestax.products.di.ProductsModule
 import javax.inject.Inject
 
-class MainActivity : BaseActivity<MainPresenter>() {
+class ProductsActivity : BaseActivity<ProductsPresenter>() {
   @Inject
-  lateinit var mainPresenter: MainPresenter
+  lateinit var productsPresenter: ProductsPresenter
 
-  override fun getPresenter(): MainPresenter {
-    return mainPresenter
+  override fun getPresenter(): ProductsPresenter {
+    return productsPresenter
   }
 
   override fun initialiseView() {
-    mainPresenter.loadProducts()
+    productsPresenter.loadProducts()
   }
 
   override fun initialiseInjector() {
-    DaggerMainComponent.builder()
+    DaggerProductsComponent.builder()
             .applicationComponent((application as MainApplication).applicationComponent)
-            .mainModule(MainModule())
+            .productsModule(ProductsModule())
             .build()
             .inject(this)
   }
