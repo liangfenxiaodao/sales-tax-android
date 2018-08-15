@@ -1,6 +1,8 @@
-package com.jackyli.domain.product.model
+package com.jackyli.salestax.domain.product.model
 
-class Product(product: com.jackyli.data.products.model.Product) {
+import com.jackyli.salestax.data.products.model.Product
+
+class Product(product: Product) {
   val name: String? = product.name
   val price: Float = product.price?.toFloat() ?: 0f
   val imported: Boolean = product.imported?.toBoolean() ?: false

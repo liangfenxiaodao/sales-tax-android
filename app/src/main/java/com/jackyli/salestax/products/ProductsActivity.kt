@@ -1,6 +1,6 @@
 package com.jackyli.salestax.products
 
-import com.jackyli.domain.product.model.Product
+import com.jackyli.salestax.domain.product.model.Product
 import com.jackyli.salestax.BaseActivity
 import com.jackyli.salestax.MainApplication
 import com.jackyli.salestax.R

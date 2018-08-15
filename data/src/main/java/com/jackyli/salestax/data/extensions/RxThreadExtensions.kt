@@ -1,4 +1,4 @@
-package com.jackyli.data.utils.extensions
+package com.jackyli.salestax.data.extensions
 
 import io.reactivex.Completable
 import io.reactivex.Observable

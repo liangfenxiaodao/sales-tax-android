@@ -1,4 +1,4 @@
-package com.jackyli.domain.util
+package com.jackyli.salestax.domain.util
 
 import io.reactivex.Observable
 import io.reactivex.Single

@@ -1,6 +1,6 @@
 package com.jackyli.salestax.products.di
 
-import com.jackyli.domain.product.usecase.ProductsUseCase
+import com.jackyli.salestax.domain.product.usecase.ProductsUseCase
 import com.jackyli.salestax.di.scope.PerActivity
 import com.jackyli.salestax.products.ProductsPresenter
 import dagger.Module

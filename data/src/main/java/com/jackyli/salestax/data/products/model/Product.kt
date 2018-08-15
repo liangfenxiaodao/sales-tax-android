@@ -1,4 +1,4 @@
-package com.jackyli.data.products.model
+package com.jackyli.salestax.data.products.model
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName

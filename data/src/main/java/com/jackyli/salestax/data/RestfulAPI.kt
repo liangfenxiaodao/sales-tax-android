@@ -1,6 +1,6 @@
-package com.jackyli.data
+package com.jackyli.salestax.data
 
-import com.jackyli.data.products.model.Products
+import com.jackyli.salestax.data.products.model.Products
 import io.reactivex.Single
 import retrofit2.http.GET
 

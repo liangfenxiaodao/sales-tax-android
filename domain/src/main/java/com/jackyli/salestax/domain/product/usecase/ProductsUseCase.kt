@@ -1,8 +1,8 @@
-package com.jackyli.domain.product.usecase
+package com.jackyli.salestax.domain.product.usecase
 
-import com.jackyli.data.products.repository.ProductsRepository
-import com.jackyli.domain.product.model.Product
-import com.jackyli.domain.util.changeToMainThread
+import com.jackyli.salestax.data.products.repository.ProductsRepository
+import com.jackyli.salestax.domain.product.model.Product
+import com.jackyli.salestax.domain.util.changeToMainThread
 import io.reactivex.Single
 import javax.inject.Inject
 

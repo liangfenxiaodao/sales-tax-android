@@ -1,8 +1,8 @@
-package com.jackyli.data.products.repository
+package com.jackyli.salestax.data.products.repository
 
-import com.jackyli.data.RestfulAPI
-import com.jackyli.data.products.model.Products
-import com.jackyli.data.utils.extensions.subscribeOnIO
+import com.jackyli.salestax.data.RestfulAPI
+import com.jackyli.salestax.data.products.model.Products
+import com.jackyli.salestax.data.extensions.subscribeOnIO
 import io.reactivex.Single
 import javax.inject.Inject
 

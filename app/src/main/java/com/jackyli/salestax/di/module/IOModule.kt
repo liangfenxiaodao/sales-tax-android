@@ -3,8 +3,8 @@ package com.jackyli.salestax.di.module
 import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.jackyli.data.RestfulAPI
-import com.jackyli.domain.util.BuildFlavor
+import com.jackyli.salestax.data.RestfulAPI
+import com.jackyli.salestax.domain.util.BuildFlavor
 import com.jackyli.salestax.BuildConfig
 import dagger.Module
 import dagger.Provides

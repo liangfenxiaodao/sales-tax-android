@@ -1,7 +1,7 @@
 package com.jackyli.salestax.products
 
-import com.jackyli.domain.product.model.Product
-import com.jackyli.domain.product.usecase.ProductsUseCase
+import com.jackyli.salestax.domain.product.model.Product
+import com.jackyli.salestax.domain.product.usecase.ProductsUseCase
 import com.jackyli.salestax.BasePresenter
 import io.reactivex.observers.DisposableSingleObserver
 import javax.inject.Inject
