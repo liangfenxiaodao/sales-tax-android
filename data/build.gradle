@@ -25,7 +25,7 @@ dependencies {
 	implementation fileTree(dir: 'libs', include: ['*.jar'])
 	implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
-	implementation "com.google.dagger:dagger:${rootProject.ext.dagger2Version}"
+	implementation "com.google.dagger:dagger:${rootProject.ext.daggerVersion}"
 	implementation "io.reactivex.rxjava2:rxjava:${rootProject.ext.rxJavaVersion}"
 	implementation "io.reactivex.rxjava2:rxandroid:${rootProject.ext.rxAndroidVersion}"
 	implementation "com.squareup.retrofit2:retrofit:${rootProject.ext.retrofitVersion}"

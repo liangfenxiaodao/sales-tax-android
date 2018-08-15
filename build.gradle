@@ -32,7 +32,7 @@ allprojects {
 		retrofitVersion = "2.3.0"
 		okhttpVersion = "3.8.1"
 		gsonVersion = "2.8.2"
-		dagger2Version = "2.15"
+		daggerVersion = "2.15"
 	}
 
 	repositories {
