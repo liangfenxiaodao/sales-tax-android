@@ -1,22 +1,33 @@
 package com.jackyli.salestax.products
 
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.jackyli.salestax.domain.product.model.Product
 import com.jackyli.salestax.BaseActivity
 import com.jackyli.salestax.MainApplication
 import com.jackyli.salestax.R
 import com.jackyli.salestax.products.di.DaggerProductsComponent
 import com.jackyli.salestax.products.di.ProductsModule
+import kotlinx.android.synthetic.main.activity_products.*
 import javax.inject.Inject
 
 class ProductsActivity : BaseActivity<ProductsPresenter>() {
   @Inject
   lateinit var productsPresenter: ProductsPresenter
 
+  @Inject
+  lateinit var productsAdapter: ProductsAdapter
+
   override fun getPresenter(): ProductsPresenter {
     return productsPresenter
   }
 
   override fun initialiseView() {
+    with(products_recycler_view) {
+      setHasFixedSize(true)
+      layoutManager = LinearLayoutManager(context)
+      adapter = productsAdapter
+      setItemViewCacheSize(10)
+    }
     productsPresenter.loadProducts()
   }
 
@@ -29,11 +40,11 @@ class ProductsActivity : BaseActivity<ProductsPresenter>() {
   }
 
   override fun getLayout(): Int {
-    return R.layout.activity_main
+    return R.layout.activity_products
   }
 
   fun setProducts(products: List<Product>) {
-    println("setProducts")
-    products.forEach { println(it.name) }
+    productsAdapter.products = products
+    productsAdapter.notifyDataSetChanged()
   }
 }
