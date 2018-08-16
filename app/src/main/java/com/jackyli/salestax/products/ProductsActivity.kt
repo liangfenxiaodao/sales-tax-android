@@ -36,6 +36,7 @@ class ProductsActivity : BaseActivity<ProductsPresenter>() {
       adapter = productsAdapter
       setItemViewCacheSize(10)
     }
+    checkout_button.isEnabled = false
     productsPresenter.loadProducts()
   }
 

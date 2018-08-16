@@ -3,4 +3,5 @@
   <string name="product_name">Name</string>
   <string name="product_price">Price</string>
   <string name="product_imported">Imported</string>
+  <string name="product_checkout">Checkout</string>
 </resources>
