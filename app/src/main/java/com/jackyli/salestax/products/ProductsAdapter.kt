@@ -24,6 +24,11 @@ class ProductsAdapter : RecyclerView.Adapter<ProductsAdapter.ViewHolder>() {
       product_name.text = product.name
       product_price.text = product.price.toString()
       product_imported.text = product.imported.toString()
+      product_checkbox.setOnCheckedChangeListener { _, isChecked ->
+        product.isChecked = isChecked
+        (context as? ProductsActivity)?.updateCheckoutButtonStatus()
+      }
+      product_checkbox.isChecked = product.isChecked
     }
   }
 

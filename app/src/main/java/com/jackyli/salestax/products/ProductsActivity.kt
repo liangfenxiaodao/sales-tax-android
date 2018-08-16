@@ -56,4 +56,9 @@ class ProductsActivity : BaseActivity<ProductsPresenter>() {
     productsAdapter.products = products
     productsAdapter.notifyDataSetChanged()
   }
+
+  fun updateCheckoutButtonStatus() {
+    val buttonEnabled = productsAdapter.products?.filter { it.isChecked }?.count()?.let { it > 0 } ?: false
+    checkout_button.isEnabled = buttonEnabled
+  }
 }
