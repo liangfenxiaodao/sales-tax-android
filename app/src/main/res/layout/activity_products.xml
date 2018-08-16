@@ -7,12 +7,25 @@
 
   <include layout="@layout/toolbar"/>
 
+  <include
+      layout="@layout/item_product"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/toolbar"
+      android:layout_marginTop="16dp"
+      android:layout_marginBottom="4dp"/>
+
+  <View
+      android:id="@+id/separator"
+      style="@style/AppTheme.SeparatorLine"
+      android:layout_below="@+id/item_product"/>
+
   <androidx.recyclerview.widget.RecyclerView
       android:id="@+id/products_recycler_view"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      android:layout_marginTop="16dp"
-      android:layout_below="@+id/toolbar">
+      android:layout_marginTop="4dp"
+      android:layout_below="@+id/separator">
 
   </androidx.recyclerview.widget.RecyclerView>
 </RelativeLayout>

@@ -1,5 +1,6 @@
 package com.jackyli.salestax.products
 
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.jackyli.salestax.domain.product.model.Product
 import com.jackyli.salestax.BaseActivity
@@ -8,6 +9,7 @@ import com.jackyli.salestax.R
 import com.jackyli.salestax.products.di.DaggerProductsComponent
 import com.jackyli.salestax.products.di.ProductsModule
 import kotlinx.android.synthetic.main.activity_products.*
+import kotlinx.android.synthetic.main.item_product.*
 import javax.inject.Inject
 
 class ProductsActivity : BaseActivity<ProductsPresenter>() {
@@ -22,6 +24,12 @@ class ProductsActivity : BaseActivity<ProductsPresenter>() {
   }
 
   override fun initialiseView() {
+    with(item_product) {
+      product_name.text = getString(R.string.product_name)
+      product_price.text = getString(R.string.product_price)
+      product_imported.text = getString(R.string.product_imported)
+      product_checkbox.visibility = View.GONE
+    }
     with(products_recycler_view) {
       setHasFixedSize(true)
       layoutManager = LinearLayoutManager(context)
