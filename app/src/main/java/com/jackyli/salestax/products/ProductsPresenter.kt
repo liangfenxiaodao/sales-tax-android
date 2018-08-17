@@ -20,4 +20,8 @@ class ProductsPresenter @Inject constructor(private val productsUseCase: Product
             })
     disposables.add(disposable)
   }
+
+  fun checkout(products: List<Product>) {
+    println("checkout")
+  }
 }

@@ -11,6 +11,8 @@ import kotlinx.android.synthetic.main.item_product.view.*
 class ProductsAdapter : RecyclerView.Adapter<ProductsAdapter.ViewHolder>() {
   var products: List<Product>? = null
 
+  fun getSelectedProducts()  = products?.filter { it.isChecked } ?: emptyList()
+
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
     val view = LayoutInflater.from(parent.context).inflate(R.layout.item_product, parent, false)
     return ViewHolder(view)

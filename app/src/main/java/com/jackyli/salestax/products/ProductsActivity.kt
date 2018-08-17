@@ -19,8 +19,17 @@ class ProductsActivity : BaseActivity<ProductsPresenter>() {
   @Inject
   lateinit var productsAdapter: ProductsAdapter
 
-  override fun getPresenter(): ProductsPresenter {
-    return productsPresenter
+  fun setProducts(products: List<Product>) {
+    productsAdapter.products = products
+    productsAdapter.notifyDataSetChanged()
+  }
+
+  fun updateCheckoutButtonStatus() {
+    checkout_button.isEnabled = productsAdapter.getSelectedProducts().count() > 0
+  }
+
+  private fun checkout() {
+    getPresenter().checkout(productsAdapter.getSelectedProducts())
   }
 
   override fun initialiseView() {
@@ -36,7 +45,10 @@ class ProductsActivity : BaseActivity<ProductsPresenter>() {
       adapter = productsAdapter
       setItemViewCacheSize(10)
     }
-    checkout_button.isEnabled = false
+    with(checkout_button) {
+      isEnabled = false
+      setOnClickListener { checkout() }
+    }
     productsPresenter.loadProducts()
   }
 
@@ -52,13 +64,7 @@ class ProductsActivity : BaseActivity<ProductsPresenter>() {
     return R.layout.activity_products
   }
 
-  fun setProducts(products: List<Product>) {
-    productsAdapter.products = products
-    productsAdapter.notifyDataSetChanged()
-  }
-
-  fun updateCheckoutButtonStatus() {
-    val buttonEnabled = productsAdapter.products?.filter { it.isChecked }?.count()?.let { it > 0 } ?: false
-    checkout_button.isEnabled = buttonEnabled
+  override fun getPresenter(): ProductsPresenter {
+    return productsPresenter
   }
 }
