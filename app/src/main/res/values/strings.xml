@@ -4,4 +4,6 @@
   <string name="product_price">Price</string>
   <string name="product_imported">Imported</string>
   <string name="product_checkout">Checkout</string>
+  <string name="total">Total:</string>
+  <string name="sales_taxes">Sales Taxes:</string>
 </resources>

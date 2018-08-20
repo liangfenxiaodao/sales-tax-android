@@ -5,6 +5,6 @@ import io.reactivex.Single
 import retrofit2.http.GET
 
 interface RestfulAPI {
-  @GET("bins/q2w98")
+  @GET("bins/lyg4c")
   fun getProducts(): Single<Products>
 }

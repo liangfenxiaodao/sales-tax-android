@@ -23,9 +23,9 @@ class ProductsAdapter : RecyclerView.Adapter<ProductsAdapter.ViewHolder>() {
   override fun onBindViewHolder(holder: ViewHolder, position: Int) {
     val product = products?.get(position) ?: return
     holder.view.apply {
-      product_name.text = product.name
-      product_price.text = product.price.toString()
-      product_imported.text = product.imported.toString()
+      product_name.text = product.getName()
+      product_price.text = product.getPrice().toString()
+      product_imported.text = product.isImported().toString()
       product_checkbox.setOnCheckedChangeListener { _, isChecked ->
         product.isChecked = isChecked
         (context as? ProductsActivity)?.updateCheckoutButtonStatus()

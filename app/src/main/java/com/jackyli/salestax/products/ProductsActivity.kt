@@ -8,6 +8,8 @@ import com.jackyli.salestax.MainApplication
 import com.jackyli.salestax.R
 import com.jackyli.salestax.products.di.DaggerProductsComponent
 import com.jackyli.salestax.products.di.ProductsModule
+import com.jackyli.salestax.result.ResultActivity
+import com.jackyli.salestax.utils.launchActivity
 import kotlinx.android.synthetic.main.activity_products.*
 import kotlinx.android.synthetic.main.item_product.*
 import javax.inject.Inject
@@ -66,5 +68,11 @@ class ProductsActivity : BaseActivity<ProductsPresenter>() {
 
   override fun getPresenter(): ProductsPresenter {
     return productsPresenter
+  }
+
+  fun showReceipt(idList: List<String>) {
+    launchActivity<ResultActivity> {
+      putExtra("idList", idList.toTypedArray())
+    }
   }
 }
