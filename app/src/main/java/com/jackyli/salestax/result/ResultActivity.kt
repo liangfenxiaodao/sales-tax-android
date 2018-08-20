@@ -49,6 +49,6 @@ class ResultActivity : BaseActivity<ResultPresenter>() {
     val totalPrice = taxCalculators.map { it.getPrice() }.reduce { acc, element -> acc + element }
     val totalTaxedPrice = taxCalculators.map { it.getTaxedPrice() }.reduce { acc, element -> acc + element }
     total_price.text = totalTaxedPrice.toString()
-    total_taxes.text = (totalTaxedPrice - totalPrice).toString()
+    total_taxes.text = "%.2f".format(totalTaxedPrice - totalPrice)
   }
 }
