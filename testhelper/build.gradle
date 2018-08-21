@@ -4,6 +4,7 @@ apply plugin: 'kotlin-android-extensions'
 
 android {
 	compileSdkVersion rootProject.ext.compileSdkVersion
+	buildToolsVersion rootProject.ext.buildToolsVersion
 
 	defaultConfig {
 		minSdkVersion rootProject.ext.minSdkVersion
@@ -23,16 +24,13 @@ android {
 
 dependencies {
 	implementation fileTree(dir: 'libs', include: ['*.jar'])
+
 	implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
+	implementation "io.reactivex.rxjava2:rxjava:$rootProject.ext.rxJavaVersion"
+	implementation "io.reactivex.rxjava2:rxandroid:$rootProject.ext.rxAndroidVersion"
+	implementation "commons-io:commons-io:${rootProject.ext.commonsIoVersion}"
+	implementation "com.google.code.gson:gson:$rootProject.ext.gsonVersion"
 
-	implementation "com.google.dagger:dagger:${rootProject.ext.daggerVersion}"
-	implementation "io.reactivex.rxjava2:rxjava:${rootProject.ext.rxJavaVersion}"
-	implementation "io.reactivex.rxjava2:rxandroid:${rootProject.ext.rxAndroidVersion}"
-
-	implementation project(path: ':data')
-
-	testImplementation "junit:junit:${rootProject.ext.junitVersion}"
-}
-repositories {
-	mavenCentral()
+	implementation "junit:junit:$rootProject.ext.junitVersion"
+	implementation "org.mockito:mockito-core:$rootProject.ext.mockitoVersion"
 }
