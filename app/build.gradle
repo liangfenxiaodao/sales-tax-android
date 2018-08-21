@@ -22,6 +22,17 @@ android {
 			proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 		}
 	}
+
+	flavorDimensions "logging"
+
+	productFlavors {
+		dev {
+
+		}
+		prod {
+
+		}
+	}
 }
 
 dependencies {
@@ -50,7 +61,7 @@ dependencies {
 
 	implementation project(path: ':domain')
 	implementation project(path: ':data')
-	
+
 	testImplementation project(path: ':testhelper')
 
 	testImplementation "junit:junit:$rootProject.ext.junitVersion"
