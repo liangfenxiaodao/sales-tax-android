@@ -31,6 +31,7 @@ dependencies {
 
 	implementation project(path: ':data')
 
+	testImplementation project(path: ':testhelper')
 	testImplementation "junit:junit:${rootProject.ext.junitVersion}"
 }
 repositories {

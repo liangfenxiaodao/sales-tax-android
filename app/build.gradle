@@ -50,6 +50,8 @@ dependencies {
 
 	implementation project(path: ':domain')
 	implementation project(path: ':data')
+	
+	testImplementation project(path: ':testhelper')
 
 	testImplementation "junit:junit:$rootProject.ext.junitVersion"
 	testImplementation "org.mockito:mockito-core:$rootProject.ext.mockitoVersion"
