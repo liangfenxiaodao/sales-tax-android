@@ -33,7 +33,7 @@ class IOModule(val context: Context) {
     return Retrofit.Builder()
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create(gson))
-            .baseUrl("https://api.myjson.com/")
+            .baseUrl("https://api.safetyculture.io/")
             .client(okHttpClient)
   }
 
