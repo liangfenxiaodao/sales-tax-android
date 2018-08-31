@@ -6,6 +6,7 @@ import com.google.gson.GsonBuilder
 import com.jackyli.salestax.data.RestfulAPI
 import com.jackyli.salestax.domain.util.BuildFlavor
 import com.jackyli.salestax.BuildConfig
+import com.jackyli.salestax.data.AuthenticationInterceptor
 import dagger.Module
 import dagger.Provides
 import okhttp3.Cache
@@ -41,11 +42,15 @@ class IOModule(val context: Context) {
     val cacheSize = 200 * 1024 * 1024L
     val cache = Cache(cacheDir, cacheSize)
 
+    val authenticationInterceptor = AuthenticationInterceptor()
+
     val builder = OkHttpClient.Builder()
             .connectTimeout(40, TimeUnit.SECONDS)
             .writeTimeout(40, TimeUnit.SECONDS)
             .readTimeout(40, TimeUnit.SECONDS)
             .cache(cache)
+    builder.addInterceptor(authenticationInterceptor)
+
     if (BuildConfig.FLAVOR == BuildFlavor.DEV.flavor) {
       builder.addInterceptor { chain ->
         println(chain.request())

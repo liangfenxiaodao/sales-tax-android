@@ -10,4 +10,5 @@ class AuthStore private constructor() {
   }
 
   var token: String? = null
+  var auditIds: List<String?>? = null
 }

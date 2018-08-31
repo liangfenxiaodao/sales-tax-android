@@ -1,5 +1,6 @@
 package com.jackyli.salestax.login
 
+import android.view.View
 import com.jackyli.salestax.BaseActivity
 import com.jackyli.salestax.MainApplication
 import com.jackyli.salestax.R
@@ -37,6 +38,14 @@ class LoginActivity : BaseActivity<LoginPresenter>() {
   }
 
   fun login() {
+    login_spinner.visibility = View.VISIBLE
+    login_button.isEnabled = false
+    login_button.text = ""
     loginPresenter.login(resources.getString(R.string.username), resources.getString(R.string.password))
+  }
+
+  fun showAudits() {
+    println("showAudits")
+    login_spinner.visibility = View.INVISIBLE
   }
 }
