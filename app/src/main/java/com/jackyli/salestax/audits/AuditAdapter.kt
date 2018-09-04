@@ -31,6 +31,7 @@ class AuditAdapter @Inject constructor(private val context: Context) : RecyclerV
       card_view_audit_name.text = audit.auditData?.name
       card_view_audit_owner.text = "Owner: " + audit.auditData?.authorship?.owner
       card_view_audit_score.text = "Score: " + audit.auditData?.score
+      card_view_audit_total_score.text = "Total score: " + audit.auditData?.totalScore
       card_view_audit_status.text = "Archived: " + audit.archived.toString()
       val completed = audit.auditData?.dateCompleted != null
       card_view_audit_completed_status.text = "Completed: " + completed.toString()
