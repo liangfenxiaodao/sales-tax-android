@@ -1,5 +1,7 @@
 package com.jackyli.salestax.data.store
 
+import com.jackyli.salestax.data.audit.Audit
+
 class AuthStore private constructor() {
   private object Holder {
     val INSTANCE = AuthStore()
@@ -10,5 +12,6 @@ class AuthStore private constructor() {
   }
 
   var token: String? = null
-  var auditIds: List<String?>? = null
+  var auditIds: List<String>? = null
+  var audits: MutableMap<String, Audit> = emptyMap<String, Audit>().toMutableMap()
 }

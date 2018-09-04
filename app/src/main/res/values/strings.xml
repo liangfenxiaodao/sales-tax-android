@@ -1,5 +1,5 @@
 <resources>
-  <string name="app_name">SalesTax</string>
+  <string name="app_name">Audits</string>
   <string name="product_name">Name</string>
   <string name="product_price">Price</string>
   <string name="product_imported">Imported</string>

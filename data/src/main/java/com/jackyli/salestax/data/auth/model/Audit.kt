@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName
 class Audit {
   @SerializedName("audit_id")
   @Expose
-  var auditId: String? = null
+  var auditId: String = ""
   @SerializedName("modified_at")
   @Expose
   var modifiedAt: String? = null

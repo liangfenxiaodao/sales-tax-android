@@ -4,8 +4,10 @@ import android.view.View
 import com.jackyli.salestax.BaseActivity
 import com.jackyli.salestax.MainApplication
 import com.jackyli.salestax.R
+import com.jackyli.salestax.audits.AuditActivity
 import com.jackyli.salestax.login.di.DaggerLoginComponent
 import com.jackyli.salestax.login.di.LoginModule
+import com.jackyli.salestax.utils.launchActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import javax.inject.Inject
 
@@ -45,7 +47,7 @@ class LoginActivity : BaseActivity<LoginPresenter>() {
   }
 
   fun showAudits() {
-    println("showAudits")
     login_spinner.visibility = View.INVISIBLE
+    launchActivity<AuditActivity> {}
   }
 }
