@@ -20,4 +20,12 @@ class AuditItem {
   @SerializedName("type")
   @Expose
   var type: String? = null
+
+  @SerializedName("responses")
+  @Expose
+  var response: Response? = null
+
+  @SerializedName("children")
+  @Expose
+  var children: List<String>? = null
 }

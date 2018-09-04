@@ -1,7 +1,7 @@
 package com.jackyli.salestax.audits.sections
 
 import android.content.Context
-import android.opengl.Visibility
+import android.graphics.Color
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -44,8 +44,8 @@ class SectionsAdapter @Inject constructor(private val context: Context) : Recycl
   private fun showSectionDetail(sectionCardView: View, section: AuditItem) {
     println("------------- showSectionDetail -------------")
     val audit = AuthStore.instance.audits[auditId]
-    val items = audit?.items?.filter { it.parentId == section.itemId }
-    items?.forEach {
+    val categoryItems = audit?.items?.filter { it.parentId == section.itemId }
+    categoryItems?.forEach {
       val textView = TextView(context)
       textView.setPadding(0, 20, 0, 20)
       textView.gravity = Gravity.LEFT
@@ -53,8 +53,19 @@ class SectionsAdapter @Inject constructor(private val context: Context) : Recycl
       sectionCardView.card_view_category_items.addView(textView, layoutParams)
     }
 
-    for (i in 0 until items!!.size) {
-      (sectionCardView.card_view_category_items.getChildAt(i) as TextView).text = items[i].label
+    for (i in 0 until categoryItems!!.size) {
+      val categoryItem = categoryItems[i]
+      val failedAnswers = emptyList<AuditItem>().toMutableList()
+      categoryItem.children?.let {
+        it.forEach { childCategoryItemId ->
+          val filter = audit.items?.filter { answerItem -> answerItem.parentId == childCategoryItemId && answerItem.response?.failed == true }
+          failedAnswers.addAll(filter!!)
+        }
+      }
+      (sectionCardView.card_view_category_items.getChildAt(i) as TextView).text = categoryItem.label
+      if (failedAnswers.isNotEmpty()) {
+        (sectionCardView.card_view_category_items.getChildAt(i) as TextView).setTextColor(Color.RED)
+      }
     }
     sectionCardView.card_view_category_items.visibility = if (sectionCardView.card_view_category_items.visibility == View.VISIBLE) {
       View.GONE
