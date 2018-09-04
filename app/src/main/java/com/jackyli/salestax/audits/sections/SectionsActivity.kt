@@ -46,8 +46,9 @@ class SectionsActivity : BaseActivity<SectionsPresenter>() {
     return R.layout.activity_sections
   }
 
-  fun showSections(items: List<AuditItem>) {
+  fun showSections(auditId: String, items: List<AuditItem>) {
     sectionsAdapter.sections = items
+    sectionsAdapter.auditId = auditId
     sectionsAdapter.notifyDataSetChanged()
   }
 }

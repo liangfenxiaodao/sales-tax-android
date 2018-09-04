@@ -1,5 +1,6 @@
 package com.jackyli.salestax.audits.sections.di
 
+import android.content.Context
 import com.jackyli.salestax.audits.sections.SectionsAdapter
 import com.jackyli.salestax.audits.sections.SectionsPresenter
 import com.jackyli.salestax.di.scope.PerActivity
@@ -11,7 +12,7 @@ import dagger.Provides
 class SectionsModule {
   @Provides
   @PerActivity
-  fun provideSectionsAdapter(): SectionsAdapter = SectionsAdapter()
+  fun provideSectionsAdapter(context: Context): SectionsAdapter = SectionsAdapter(context)
 
   @Provides
   @PerActivity

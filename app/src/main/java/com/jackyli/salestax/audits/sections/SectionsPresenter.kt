@@ -9,6 +9,6 @@ class SectionsPresenter @Inject constructor(private val auditUseCase: AuditUseCa
   fun getSections(auditId: String) {
     val audit = AuthStore.instance.audits[auditId]
     val items = audit?.items?.filter { it.type == "section" } ?: emptyList()
-    getView()?.showSections(items)
+    getView()?.showSections(auditId, items)
   }
 }

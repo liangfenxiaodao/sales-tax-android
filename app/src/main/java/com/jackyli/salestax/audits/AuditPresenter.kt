@@ -11,17 +11,13 @@ class AuditPresenter @Inject constructor(private val auditUseCase: AuditUseCase)
     val disposable = auditUseCase.getAudit().subscribeWith(
             object : DisposableObserver<Audit>() {
               override fun onComplete() {
-                println("onComplete")
               }
 
               override fun onNext(t: Audit) {
-                println("onNext")
-                println(t)
                 getView()?.addAudit(t)
               }
 
               override fun onError(e: Throwable) {
-                println("onError")
               }
             })
 
