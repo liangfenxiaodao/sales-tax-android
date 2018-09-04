@@ -1,5 +1,6 @@
 package com.jackyli.salestax.audits.di
 
+import android.content.Context
 import com.jackyli.salestax.audits.AuditAdapter
 import com.jackyli.salestax.audits.AuditPresenter
 import com.jackyli.salestax.di.scope.PerActivity
@@ -11,7 +12,7 @@ import dagger.Provides
 class AuditModule {
   @Provides
   @PerActivity
-  fun provideAuditAdapter(): AuditAdapter = AuditAdapter()
+  fun provideAuditAdapter(context: Context): AuditAdapter = AuditAdapter(context)
 
   @Provides
   @PerActivity

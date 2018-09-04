@@ -1,14 +1,19 @@
 package com.jackyli.salestax.audits
 
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.jackyli.salestax.R
+import com.jackyli.salestax.audits.sections.SectionsActivity
 import com.jackyli.salestax.data.audit.Audit
+import com.jackyli.salestax.utils.launchActivity
 import kotlinx.android.synthetic.main.card_view_audit.view.*
+import javax.inject.Inject
 
-class AuditAdapter : RecyclerView.Adapter<AuditAdapter.ViewHolder>() {
+class AuditAdapter @Inject constructor(private val context: Context) : RecyclerView.Adapter<AuditAdapter.ViewHolder>() {
   var audits: MutableList<Audit> = emptyList<Audit>().toMutableList()
 
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -29,6 +34,17 @@ class AuditAdapter : RecyclerView.Adapter<AuditAdapter.ViewHolder>() {
       card_view_audit_status.text = "Archived: " + audit.archived.toString()
       val completed = audit.auditData?.dateCompleted != null
       card_view_audit_completed_status.text = "Completed: " + completed.toString()
+
+      setOnClickListener {
+        showSections(audit.auditId)
+      }
+    }
+  }
+
+  private fun showSections(auditId: String) {
+    context.launchActivity<SectionsActivity> {
+      addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+      putExtra("auditId", auditId)
     }
   }
 

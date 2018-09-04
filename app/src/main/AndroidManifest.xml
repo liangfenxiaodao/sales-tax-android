@@ -24,6 +24,7 @@
       </intent-filter>
     </activity>
     <activity android:name=".audits.AuditActivity"/>
+    <activity android:name=".audits.sections.SectionsActivity"/>
   </application>
 
 </manifest>

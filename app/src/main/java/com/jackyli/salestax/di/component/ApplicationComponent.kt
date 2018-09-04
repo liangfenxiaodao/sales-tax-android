@@ -1,6 +1,7 @@
 package com.jackyli.salestax.di.component
 
 import android.app.Application
+import android.content.Context
 import com.jackyli.salestax.data.RestfulAPI
 import com.jackyli.salestax.di.module.ContextModule
 import com.jackyli.salestax.di.module.IOModule
@@ -13,5 +14,6 @@ import javax.inject.Singleton
 @Component(modules = [ContextModule::class, IOModule::class, RepositoryModule::class, UsecaseModule::class])
 interface ApplicationComponent {
   fun getRestfulAPI(): RestfulAPI
+  fun getContext(): Context
   fun inject(application: Application)
 }
